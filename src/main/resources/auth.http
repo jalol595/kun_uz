@@ -1,0 +1,66 @@
+###
+POST http://localhost:8081/register/create
+Content-Type: application/json
+
+
+{
+
+   "name": "jalol",
+   "surName" :"karshiboyev",
+   "email" : "ko'ppakcha.com",
+   "phone" : "99894123456789"
+
+
+}
+
+
+
+###
+POST http://localhost:8081/auth/login
+Content-Type: application/json
+
+
+{
+
+
+  "email" : "ko'ppakcha.com",
+  "phone" : "99894123456789"
+
+
+}
+
+
+###
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+
+{
+
+  "phone" : "99894123456789",
+  "password":"12345"
+
+
+}
+
+###
+GET http://localhost:8080/init/initAdmin
+Content-Type: application/json
+
+{
+  "phone" : "99894123456789",
+  "password" : "12345"
+}
+
+###
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+
+{
+
+  "phone" : "998947771177",
+  "password":"123456"
+
+
+}
