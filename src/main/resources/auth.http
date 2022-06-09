@@ -1,14 +1,14 @@
 ###
-POST http://localhost:8081/register/create
+POST http://localhost:8081/profile/create
 Content-Type: application/json
 
 
 {
 
-   "name": "jalol",
-   "surName" :"karshiboyev",
-   "email" : "ko'ppakcha.com",
-   "phone" : "99894123456789"
+   "name": "pep",
+   "surName" :"gvardiola",
+   "email" : "man_city.com",
+   "phone" : "99894123456222"
 
 
 }

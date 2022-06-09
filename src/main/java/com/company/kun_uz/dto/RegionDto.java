@@ -7,13 +7,11 @@ import javax.persistence.Column;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfileDto {
+public class RegionDto {
 
-    private String name;
-    private String surName;
-    private String email;
-    private String phone;
-
-    private String jwt;
+    private String key;
+    private  String nameUz;
+    private  String nameRu;
+    private  String nameEn;
 
 }

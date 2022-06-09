@@ -39,7 +39,7 @@ public class ProfileEntity {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private ProfileRole role=ProfileRole.USER;
+    private ProfileRole role=ProfileRole.ADMIN;
 
     @Column(nullable = false)
     private Boolean visible=Boolean.TRUE;
