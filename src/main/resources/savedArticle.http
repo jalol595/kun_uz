@@ -1,0 +1,22 @@
+###
+POST http://localhost:8082/saved_article/adm
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTYwMDQ1MzEsImV4cCI6MTY1NjAwODEzMSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.nq54uHR-eWP6_TnB4sGq-1N0HXoATpAaOtyL9eV6V3E
+
+{
+  "articleId" : "8a8a8580819059050181905af30f0003"
+
+}
+
+
+###
+DELETE http://localhost:8082/saved_article/adm/delete/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU4ODI2MjYsImV4cCI6MTY1NTg4NjIyNiwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.yiXDZzxh6S-ShaZYzPm5L-WihP-NdhYeLznZ9OE4SeM
+
+
+
+###
+GET http://localhost:8082/saved_article/adm/list
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTYwMDQ1MzEsImV4cCI6MTY1NjAwODEzMSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.nq54uHR-eWP6_TnB4sGq-1N0HXoATpAaOtyL9eV6V3E

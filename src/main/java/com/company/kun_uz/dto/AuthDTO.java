@@ -7,10 +7,10 @@ import lombok.Setter;
 @Setter
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AuthDto {
+public class AuthDTO {
 
     private String email;
-    private String phone;
+    private String password;
 
 
 

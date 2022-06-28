@@ -1,0 +1,99 @@
+
+//////////////////////////
+###//create moderator and Publisher by admin
+POST http://localhost:8082/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0NzkwNzQsImV4cCI6MTY1NTQ4MjY3NCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.ozHE0LTmCjVeUNbw2B_19kUkRmCJwH5-M2-c3etycyk
+
+
+{
+
+  "name": "publisher",
+  "surname" :"publisher aka",
+  "email" : "publisher.com",
+  "role" : "PUBLISHER",
+  "password" : "99894"
+
+}
+
+###//admin token
+POST http://localhost:8082/auth/login
+Content-Type: application/json
+
+{
+
+  "email" : "admin.com",
+  "password" : "99894"
+
+}
+
+
+###//moderator token
+POST http://localhost:8082/auth/login
+Content-Type: application/json
+
+{
+
+  "email" : "moderator.com",
+  "password" : "99894"
+
+}
+
+
+###//publisher token
+POST http://localhost:8082/auth/login
+Content-Type: application/json
+
+{
+
+  "email" : "publisher.com",
+  "password" : "99894"
+
+}
+
+
+
+###//admin delete profile
+PUT http://localhost:8082/profile/delete/13
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTQ4MzkzNzcsImV4cCI6MTY1NDg0Mjk3NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMywicm9sZSI6IlVTRVIifQ.C9maAQGxcIImCYdI9ctQwll9kEv7u2Bx33ZoiG833I8
+
+###//update profile by admin
+PUT http://localhost:8082/profile/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTQ4MzkzNzcsImV4cCI6MTY1NDg0Mjk3NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMywicm9sZSI6IlVTRVIifQ.C9maAQGxcIImCYdI9ctQwll9kEv7u2Bx33ZoiG833I8
+
+{
+  "name": "jalol007",
+  "surName" :"karshiboyev007",
+  "email" : "kkk.com007",
+  "phone" : "998945779598"
+}
+
+###//get list by admin all
+GET http://localhost:8082/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0NzkwNzQsImV4cCI6MTY1NTQ4MjY3NCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.ozHE0LTmCjVeUNbw2B_19kUkRmCJwH5-M2-c3etycyk
+
+###//delete by admin
+DELETE http://localhost:8082/profile/10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0NzkwNzQsImV4cCI6MTY1NTQ4MjY3NCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.ozHE0LTmCjVeUNbw2B_19kUkRmCJwH5-M2-c3etycyk
+
+
+###//get list by admin pagination
+GET http://localhost:8082/profile/pagination?page=0&size=4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0NzkwNzQsImV4cCI6MTY1NTQ4MjY3NCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.ozHE0LTmCjVeUNbw2B_19kUkRmCJwH5-M2-c3etycyk
+
+
+###
+PUT http://localhost:8082/profile/updatePhoto
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU5OTU0ODEsImV4cCI6MTY1NTk5OTA4MSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.h3TeMoheWxNs6VE2jMyHHNTlYSxZMCJrIgM37HCTuF0
+
+
+{
+  "oldId" : "8a8a85808190bff9018190c2c7d80000",
+  "newId" :  "8a8a858081911314018191165bc30000"
+}

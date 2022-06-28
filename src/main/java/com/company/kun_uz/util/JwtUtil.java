@@ -1,5 +1,6 @@
 package com.company.kun_uz.util;
 
+import com.company.kun_uz.dto.JwtDTO;
 import com.company.kun_uz.enums.ProfileRole;
 import com.company.kun_uz.exps.BadRequestException;
 import io.jsonwebtoken.Claims;
@@ -62,5 +63,18 @@ public class JwtUtil {
         }
         return id;
     }
+
+    public static JwtDTO decodeJwtDTO(String token) {
+        Claims claims = Jwts.parser()
+                .setSigningKey(secretKey)
+                .parseClaimsJws(token)
+                .getBody();
+        Integer id = (Integer) claims.get("id");
+        String role = (String) claims.get("role");
+
+        return new JwtDTO(id, ProfileRole.valueOf(role));
+    }
+
+
 
 }

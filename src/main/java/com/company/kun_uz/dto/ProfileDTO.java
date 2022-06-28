@@ -1,18 +1,21 @@
 package com.company.kun_uz.dto;
 
+import com.company.kun_uz.enums.ProfileRole;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
-import javax.persistence.Column;
-
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProfileDto {
+public class ProfileDTO {
 
+    private Integer id;
     private String name;
-    private String surName;
+    private String surname;
     private String email;
-    private String phone;
+    private ProfileRole role;
+    private String password;
+
+    private String photoId;
 
     private String jwt;
 

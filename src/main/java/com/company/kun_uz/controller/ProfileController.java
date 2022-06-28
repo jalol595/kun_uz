@@ -1,13 +1,18 @@
 package com.company.kun_uz.controller;
 
-import com.company.kun_uz.dto.ProfileDto;
+import com.company.kun_uz.dto.AttachDTO;
+import com.company.kun_uz.dto.ProfileDTO;
+import com.company.kun_uz.dto.UpdateAttacheDTO;
 import com.company.kun_uz.enums.ProfileRole;
 import com.company.kun_uz.service.ProfileService;
+import com.company.kun_uz.util.HttpHeaderUtil;
 import com.company.kun_uz.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RequestMapping("/profile")
@@ -19,44 +24,65 @@ public class ProfileController {
     private ProfileService profileService;
 
 
-    @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody ProfileDto profileDto) {
-        ProfileDto dto = profileService.create(profileDto);
+    @PostMapping("")
+    public ResponseEntity<?> create(@RequestBody ProfileDTO profileDto,
+                                    HttpServletRequest request) {
+        HttpHeaderUtil.getId(request, ProfileRole.ADMIN);
+        ProfileDTO dto = profileService.create(profileDto);
         return ResponseEntity.ok().body(dto);
     }
 
-    //by admin super_moderator, maderator
-    @GetMapping("/list")
-    public ResponseEntity<List<ProfileDto>> getlistBook(@RequestHeader("Authorization") String jwt) {
-        JwtUtil.decode1(jwt, ProfileRole.ADMIN);
-        List<ProfileDto> list = profileService.getList();
+
+    @GetMapping("")
+    public ResponseEntity<List<ProfileDTO>> getProfileList(HttpServletRequest request) {
+        HttpHeaderUtil.getId(request, ProfileRole.ADMIN);
+        List<ProfileDTO> list = profileService.getList();
         return ResponseEntity.ok().body(list);
     }
 
-    //user
-    @PutMapping("/update")
-    public ResponseEntity<?> update(@RequestBody ProfileDto dto,
-                                             @RequestHeader("Authorization") String jwt) {
-        Integer decode = JwtUtil.decode(jwt);
-        profileService.update(decode, dto);
+
+    @PutMapping("/detail")
+    public ResponseEntity<?> update(@RequestBody ProfileDTO dto,
+                                    HttpServletRequest request) {
+        Integer profileId = HttpHeaderUtil.getId(request);
+        profileService.update(profileId, dto);
         return ResponseEntity.ok().body("Sucsessfully updated");
     }
 
-    //admin
-    @PutMapping("/update/{id}")
-    private ResponseEntity<?> update(@PathVariable("id") Integer id, @RequestBody ProfileDto dto, @RequestHeader("Authorization") String jwt) {
-        JwtUtil.decode1(jwt, ProfileRole.ADMIN);
+
+    @PutMapping("/{id}")
+    private ResponseEntity<?> update(@PathVariable("id") Integer id,
+                                     @RequestBody ProfileDTO dto,
+                                     HttpServletRequest request) {
+        HttpHeaderUtil.getId(request, ProfileRole.ADMIN);
         profileService.update(id, dto);
         return ResponseEntity.ok().body("Succsessfully updated");
     }
 
-    @PutMapping("/delete/{id}")
-    private ResponseEntity<?> delete(@PathVariable("id") Integer id, @RequestHeader("Authorization") String jwt) {
-        JwtUtil.decode1(jwt, ProfileRole.ADMIN);
+    @DeleteMapping("/{id}")
+    private ResponseEntity<?> delete(@PathVariable("id") Integer id,
+                                     HttpServletRequest request) {
+        HttpHeaderUtil.getId(request, ProfileRole.ADMIN);
         profileService.delete(id);
         return ResponseEntity.ok().body("Sucsessfully deleted");
     }
 
+    @GetMapping("/pagination")
+    public ResponseEntity<PageImpl> getPagination(@RequestParam(value = "page", defaultValue = "1") int page,
+                                                  @RequestParam(value = "size", defaultValue = "3") int size,
+                                                  HttpServletRequest request) {
+        HttpHeaderUtil.getId(request, ProfileRole.ADMIN);
+        PageImpl response = profileService.pagination(page, size);
+        return ResponseEntity.ok().body(response);
+    }
 
+/*
+    @PutMapping("/updatePhoto")
+    public ResponseEntity<?> updatePhoto(@RequestBody UpdateAttacheDTO dto,
+                                     HttpServletRequest request) {
+        Integer pId = HttpHeaderUtil.getId(request, ProfileRole.USER);
+        profileService.updatePhoto(dto, pId);
+        return ResponseEntity.ok().body("Succsessfully updated");
+    }*/
 
 }

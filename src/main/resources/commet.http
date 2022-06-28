@@ -1,0 +1,67 @@
+### create comment any
+POST http://localhost:8082/comment/user
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU3MDY1ODQsImV4cCI6MTY1NTcxMDE4NCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.n6nYhkdJ36IUWbI9rYO4TPquvQeuXNwdIh1Ia-lALYQ
+
+
+{
+  "article_id" : "8a8a84ed81754b2f0181757518080003",
+  "content" : "555"
+}
+
+
+
+###// get admin list comment all
+GET http://localhost:8082/comment/adm
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU2NTgzMDksImV4cCI6MTY1NTY2MTkwOSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.0BDPhTMXVMqoAuyIuHO5SIdZ0WBWHExvvTbtaiPGSIs
+
+
+###update only user
+PUT http://localhost:8082/comment/user/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU2NDg5ODEsImV4cCI6MTY1NTY1MjU4MSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.HKpX9Egr8_TyWXe4iBDmq3E7dBOuD1ry5-vkQ9FqWjs
+
+{
+  "content" : "xa chumocha"
+}
+
+###
+DELETE http://localhost:8082/comment/adm/11
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU3MDAwNDgsImV4cCI6MTY1NTcwMzY0OCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.DtnwL_w4QPfs791uBeHN3c5FC-6xmMaNEcVVdzlaipU
+
+
+###
+DELETE http://localhost:8082/comment/adm/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU2NDg0OTAsImV4cCI6MTY1NTY1MjA5MCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.3dBJUMR38BrNeyeUJOatVEeU8Tdu7RWz07thnjVvQjM
+
+
+###// get list comment all article_id
+GET http://localhost:8082/comment/list/8a8a84ed81754b2f0181757518080003
+Content-Type: application/json
+
+
+###// get list comment
+GET http://localhost:8082/comment/adm/list
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU3MTQzNjEsImV4cCI6MTY1NTcxNzk2MSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.Q56c8WbqMOPQtwTrAbwEvRO7HF-cb8ElCXsO3sBwwu0
+
+###
+POST http://localhost:8082/comment/filter
+Content-Type: application/json
+
+{
+
+  "articleId"  : "8a8a84ed81754b2f0181757518080003"
+}
+###
+
+##  "id" :
+ ## "createdDateFrom" :
+##  "createdDateTo" :
+##  "content" :
+##  "profileId" :
+ ## "articleId"  :
+}

@@ -1,0 +1,31 @@
+###
+POST http://localhost:8082/article_like/like
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTYwMDM3MjUsImV4cCI6MTY1NjAwNzMyNSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.8cRqbMAhpW7DMW2Nl9hFMmuoWhigAdYfUBtCrrwP-Ac
+
+{
+
+  "articleId": "8a8a84ed81754b2f018175732d0a0002"
+}
+
+###
+POST http://localhost:8082/article_like/dislike
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU2Mzg0OTUsImV4cCI6MTY1NTY0MjA5NSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.dzw8F7iz2919PXjUcA5Qv5GfRYP2gxyRIQf8E_V9ZvM
+
+{
+
+  "articleId": "402880ea817ab7dd01817ac8f48b0000"
+}
+
+###
+POST http://localhost:8082/article_like/remove
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU2Mzg0OTUsImV4cCI6MTY1NTY0MjA5NSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxMSwicm9sZSI6IlVTRVIifQ.dzw8F7iz2919PXjUcA5Qv5GfRYP2gxyRIQf8E_V9ZvM
+
+
+{
+
+  "articleId": "402880ea817ab7dd01817ac8f48b0000"
+
+}

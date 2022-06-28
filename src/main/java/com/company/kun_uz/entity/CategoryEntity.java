@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "region")
+@Table(name = "category")
 public class CategoryEntity {
 
     @Id
@@ -21,14 +21,15 @@ public class CategoryEntity {
     @Column(nullable = false, unique = true)
     private String key;
 
-    @Column(nullable = false, name = "name_Uz")
+    @Column(nullable = false, name = "name_uz")
     private  String nameUz;
 
-    @Column(nullable = false, name = "name_Ru")
+    @Column(nullable = false, name = "name_ru")
     private  String nameRu;
 
-    @Column(nullable = false, name = "name_En")
+    @Column(nullable = false, name = "name_en")
     private  String nameEn;
+
 
     @Column(nullable = false)
     private Boolean visible=Boolean.TRUE;
@@ -37,5 +38,7 @@ public class CategoryEntity {
     @Column(nullable = false, name = "created_date")
     private LocalDateTime createdDate=LocalDateTime.now();
 
-
+    public CategoryEntity(String key) {
+        this.key = key;
+    }
 }

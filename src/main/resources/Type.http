@@ -1,0 +1,47 @@
+###//create type admin
+POST http://localhost:8082/types
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0ODI5OTcsImV4cCI6MTY1NTQ4NjU5NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.spTUCjm7XeW0A_dUOfQrkmxFMp3AgAXVsp0VcSQbrsk
+
+{
+  "key" : "ФАН-ТЕХНИКА",
+  "nameUz" : "ФАН-ТЕХНИКА uzbekcha",
+  "nameRu" : "ФАН-ТЕХНИКА ruscha",
+  "nameEn":"ФАН-ТЕХНИКА englishcha"
+}
+
+###//public get list
+GET http://localhost:8082/types/public
+Accept-Language:
+
+
+###get lis omy admin
+GET http://localhost:8082/types/adm
+Content-Type: application/json
+Accept-Language:
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0ODI5OTcsImV4cCI6MTY1NTQ4NjU5NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.spTUCjm7XeW0A_dUOfQrkmxFMp3AgAXVsp0VcSQbrsk
+
+
+###
+PUT http://localhost:8082/types/adm/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0ODI5OTcsImV4cCI6MTY1NTQ4NjU5NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.spTUCjm7XeW0A_dUOfQrkmxFMp3AgAXVsp0VcSQbrsk
+
+{
+  "key" : "Кўп ўқилганлар1",
+  "nameUz" : "Кўп ўқилганлар uzbekcha2",
+  "nameRu" : "Кўп ўқилганлар ruscha",
+  "nameEn":"Кўп ўқилганлар englishcha"
+}
+
+###
+DELETE http://localhost:8082/types/adm/2
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0ODI5OTcsImV4cCI6MTY1NTQ4NjU5NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.spTUCjm7XeW0A_dUOfQrkmxFMp3AgAXVsp0VcSQbrsk
+
+
+###
+GET http://localhost:8082/types/adm/pagination?page=0&size=5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU0ODI5OTcsImV4cCI6MTY1NTQ4NjU5NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.spTUCjm7XeW0A_dUOfQrkmxFMp3AgAXVsp0VcSQbrsk
+Accept-Language:

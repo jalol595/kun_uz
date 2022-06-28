@@ -1,0 +1,43 @@
+###
+POST http://localhost:8082/category/adm
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU1Mjg5ODcsImV4cCI6MTY1NTUzMjU4NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.63IlpKeIDCfw9dE6p5u8zm7VBLKJuZ6D4xPws1E6mgA
+
+{
+  "key" : "ЖАҲОН",
+  "nameUz" : "ЖАҲОН uzbek",
+  "nameRu" : "ЖАҲОН ruscha",
+  "nameEn":"ЖАҲОН english"
+}
+
+
+
+###
+GET http://localhost:8082/category
+Content-Type: application/json
+
+
+
+###
+GET http://localhost:8082/category/adm
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU1Mjg5ODcsImV4cCI6MTY1NTUzMjU4NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.63IlpKeIDCfw9dE6p5u8zm7VBLKJuZ6D4xPws1E6mgA
+
+###
+PUT http://localhost:8082/category/adm/4
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU1Mjg5ODcsImV4cCI6MTY1NTUzMjU4NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.63IlpKeIDCfw9dE6p5u8zm7VBLKJuZ6D4xPws1E6mgA
+
+{
+  "key" : "ЖАҲОН1",
+  "nameUz" : "ЖАҲОН uzbek",
+  "nameRu" : "ЖАҲОН ruscha",
+  "nameEn":"ЖАҲОН english"
+}
+
+###
+DELETE http://localhost:8082/category/adm/10
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU1Mjg5ODcsImV4cCI6MTY1NTUzMjU4NywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.63IlpKeIDCfw9dE6p5u8zm7VBLKJuZ6D4xPws1E6mgA
+
+

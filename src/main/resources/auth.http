@@ -1,66 +1,47 @@
-###
-POST http://localhost:8081/profile/create
+###profile register
+POST http://localhost:8082/auth/registration
 Content-Type: application/json
 
+{
+  "name": "malibu",
+  "surname" :"kap",
+  "email" : "jalolkarshiboyev@gmail.com",
+  "password" : "12345",
+  "phone": "fecasdzcfeaddwsc"
+}
+
+
+###//profile token
+POST http://localhost:8082/auth/login
+Content-Type: application/json
 
 {
+  "email" : "kaka.com",
+  "password" : "9595"
+}
 
-   "name": "pep",
-   "surName" :"gvardiola",
-   "email" : "man_city.com",
-   "phone" : "99894123456222"
 
+###//update any profile
+PUT http://localhost:8082/profile/detail
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTYzMDU1NzksImV4cCI6MTY1NjMwOTE3OSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxNiwicm9sZSI6IlVTRVIifQ.Ie-i3TpSaITv6PffaHSBwjWJUklo2XnNiandG_LAogk
+
+{
+  "name": "xumkalla",
+  "surname" :"roltonbosh",
+  "email" : "rolton.com",
+  "password" : "9595"
 
 }
 
 
 
 ###
-POST http://localhost:8081/auth/login
+GET http://localhost:8082/auth/adm/emailList?page=0&size=2
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTY0MTIxMjMsImV4cCI6MTY1NjQxNTcyMywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.cEAsTgSupUpC06s0aIyYFvdIWntYHEyjRgdAL265Qtc
 
 
-{
 
 
-  "email" : "ko'ppakcha.com",
-  "phone" : "99894123456789"
 
-
-}
-
-
-###
-POST http://localhost:8080/auth/login
-Content-Type: application/json
-
-
-{
-
-  "phone" : "99894123456789",
-  "password":"12345"
-
-
-}
-
-###
-GET http://localhost:8080/init/initAdmin
-Content-Type: application/json
-
-{
-  "phone" : "99894123456789",
-  "password" : "12345"
-}
-
-###
-POST http://localhost:8080/auth/login
-Content-Type: application/json
-
-
-{
-
-  "phone" : "998947771177",
-  "password":"123456"
-
-
-}

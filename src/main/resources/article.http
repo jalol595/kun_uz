@@ -1,0 +1,179 @@
+###//create by moderator article
+POST http://localhost:8082/article/adm
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU5ODIxNzgsImV4cCI6MTY1NTk4NTc3OCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoyLCJyb2xlIjoiTU9ERVJBVE9SIn0.9QTn6zT6Di9m-B8J4qgghRbiSOxkMvRxd2-7qGGaSYo
+
+{
+  "title": "fbgnvhmbvczdfvgbhnjmk,njmbvgcxf",
+  "content": "Якшанба куни ёмғир ёғиши, шамол тезлиги кучайиши, чанг-тўзонлар кузатилиши мумкин.",
+  "description": "Республиканинг тоғли ҳудудлари. Ҳаво ўзгариб туради, баъзи жойларда қисқа муддатли ёмғир ёғади",
+  "regionId": 1,
+  "categoryId": 3,
+  "imageId" : "8a8a826a818b47bf01818b480f4c0000",
+  "typesList": [
+    1
+
+  ],
+
+
+
+  "tagList": [
+   "#онкология"
+
+
+  ]
+}
+
+
+
+###//get all by admin
+GET http://localhost:8082/article/adm
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU1NDkyNzAsImV4cCI6MTY1NTU1Mjg3MCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoyLCJyb2xlIjoiTU9ERVJBVE9SIn0.vYLF69AHEm-ppGWReUr0yzNjfcGYHgAmA-60IRu9VBQ
+
+
+
+###//delete by admin
+DELETE http://localhost:8082/article/adm/8a8a84ed81754b2f0181756ce2b20000
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU1MzYyMTUsImV4cCI6MTY1NTUzOTgxNSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoxLCJyb2xlIjoiQURNSU4ifQ.zfYqv3W2C7EAhRdyzBVx3us6qNbNHQAKHusKYdfMgTM
+
+
+###//publish article bu publisher
+PUT http://localhost:8082/article/adm/publish/8a8a8580819059050181905af30f0003
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTYwMDQxOTQsImV4cCI6MTY1NjAwNzc5NCwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjozLCJyb2xlIjoiUFVCTElTSEVSIn0.Lvhsh1Z8VU1O3t3tpxaqTufHNFdKF3_xkjhMQsY5Z_A
+
+###//update article bu publisher
+PUT http://localhost:8082/article/adm/402880ea817ab7dd01817ac8f48b0000
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTYzNDY1NTUsImV4cCI6MTY1NjM1MDE1NSwiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjoyLCJyb2xlIjoiTU9ERVJBVE9SIn0.adjnjnHW6OZRk7Unawi_fGm3gTS9mtWRyWLHs-LVwGg
+
+{
+
+  "title" : "asdfghjhgfdsfghjm",
+  "content" : "qoycha qoycha x",
+  "description" : "asdfgthyrfedfrghjmgrfhjm",
+  "imageId" :  "null"
+}
+
+
+
+
+###//not publish article  publisher
+PUT http://localhost:8082/article/adm/notPublish/402880ea817ab7dd01817ac90c480001
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2NTU2MjUzMTMsImV4cCI6MTY1NTYyODkxMywiaXNzIjoiTWF6Z2kgcHJvZHVjdGlvbiIsImlkIjozLCJyb2xlIjoiUFVCTElTSEVSIn0.35zk0RXtVFvL559WRbv8lMD9H-dorxyrxkOZwWmBgtI
+
+
+###//article last 5 by type
+GET http://localhost:8082/article/typeLast5/Муҳаррир танлови
+Content-Type: application/json
+
+###//article last 3 by type
+GET http://localhost:8082/article/typeLast3/Долзарб хабарлар
+Content-Type: application/json
+
+
+###
+POST http://localhost:8082/article/last8List
+Content-Type: application/json
+
+{
+
+  "idList": [
+              "8a8a84ed81754b2f01817570d9ae0001",
+              "8a8a84ed81754b2f018175732d0a0002",
+              "8a8a84ed81754b2f0181757518080003"
+            ]
+}
+
+
+
+### Get  article by id
+GET http://localhost:8082/article/getByIdFull/8a8a8580819059050181905af30f0003
+Content-Type: application/json
+
+
+###
+GET http://localhost:8082/article/last8List
+Content-Type: application/json
+
+{
+
+  "idList": [
+    "8a8a84ed81754b2f01817570d9ae0001",
+    "8a8a84ed81754b2f018175732d0a0002",
+    "8a8a84ed81754b2f0181757518080003"
+  ]
+}
+
+
+### Get       ///9
+GET http://localhost:8082/article/gatFourNoTIn/Долзарб хабарлар
+Content-Type: application/json
+
+{
+  "id" : "8a8a84ed81754b2f0181757518080003"
+}
+
+### Get  most 4
+GET http://localhost:8082/article/getMost4ViewedArticleList
+Content-Type: application/json
+
+
+### Get  last 4 by tagName
+GET http://localhost:8082/article/getLast4TagName/онкология
+Content-Type: application/json
+
+### get Last 5 Article By Types And By RegionKey
+GET http://localhost:8082/article/getLast5ArticleByTypesAndByRegionKey
+Content-Type: application/json
+
+{
+  "typeKey" : "Долзарб хабарлар",
+  "regionKey" : "Тошкент ш."
+}
+
+### get List Article  By RegionKey
+GET http://localhost:8082/article/getLastArticleListRegionKey/Тошкент ш.
+Content-Type: application/json
+
+
+### get List Article  By Category Key  List 5
+GET http://localhost:8082/article/getLast5CategoryList/BUSINESS CLASS
+Content-Type: application/json
+
+### get List Article  By Category Key  paginatin
+GET http://localhost:8082/article/getLast5CategoryPagination/BUSINESS CLASS
+Content-Type: application/json
+
+### 19. Increase Article View Count by Article Id
+GET http://localhost:8082/article/increaseArticleViewCountbyArticleId/8a8a84ed81754b2f018175732d0a0002
+Content-Type: application/json
+
+
+###
+POST http://localhost:8082/article/filter
+Content-Type: application/json
+
+{
+
+
+  "description" :  "Республиканинг"
+
+}
+
+
+###
+#{
+#  "id": null,
+#  "publishedDateFrom": null,
+#  "title": "Onnnkolgi44",
+#  "description" :  "Республиканинг",
+#  "regionId" :
+#  "categoryId " :
+#  "publishedDateFrom" : // yyyy-MM-dd
+# "publishedDateTo" :
+#}
+
