@@ -13,6 +13,7 @@ import com.company.kun_uz.util.HttpHeaderUtil;
 import com.company.kun_uz.util.JwtUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +22,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
-
+@Slf4j
 @Api(tags = "Authorization and Registeration")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
 
-    Logger log= LoggerFactory.getLogger(AuthController.class);
+
 
     @Autowired
     private AuthService authService;
@@ -42,14 +44,17 @@ public class AuthController {
 
     @ApiOperation(value = "Registeration", notes = "Method for registiration")
     @PostMapping("/registration")
-    public ResponseEntity<?> createByAdmin(@RequestBody RegistrationDTO dto) {
+    public ResponseEntity<?> createByAdmin(@RequestBody @Valid RegistrationDTO dto) {
+
+        log.info("Request for login {}", dto);
+
         String response = authService.registiration(dto);
         return ResponseEntity.ok().body(response);
     }
 
-    @ApiOperation(value = "Login", notes = "Method for registiration")
+    @ApiOperation(value = "Login", notes = "Method for login")
     @PostMapping("/login")
-    public ResponseEntity<ProfileDTO> login(@RequestBody AuthDTO dto) {
+    public ResponseEntity<ProfileDTO> login(@RequestBody @Valid AuthDTO dto) {
 
         log.info("Request for login {}", dto); ///////////log
 
@@ -57,15 +62,16 @@ public class AuthController {
         return ResponseEntity.ok(profileDto);
     }
 
-    @ApiOperation(value = "email verification", notes = "Method for registiration")
+    @ApiOperation(value = "email verification", notes = "Method for verification")
     @GetMapping("/email/verification/{token}")
     public ResponseEntity<?> login(@PathVariable("token") String token) {
+
         Integer PID = JwtUtil.decode(token);
         String s= authService.verificationEmail(PID);
         return ResponseEntity.ok(s);
     }
 
-
+    @ApiOperation(value = "email list", notes = "Method for email list admin")
     @GetMapping("/adm/emailList")
     public ResponseEntity<PageImpl> getList(@RequestParam(value = "page", defaultValue = "1") int page,
                                                   @RequestParam(value = "size", defaultValue = "3") int size,

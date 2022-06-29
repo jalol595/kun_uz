@@ -5,6 +5,9 @@ import com.company.kun_uz.dto.TypesDTO;
 import com.company.kun_uz.enums.ProfileRole;
 import com.company.kun_uz.service.SavedArticleService;
 import com.company.kun_uz.util.HttpHeaderUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+@Slf4j
+@Api(tags = "Saved Article")
 @RequestMapping("/saved_article")
 @RestController
 public class SavedArticleController {
@@ -20,6 +25,7 @@ public class SavedArticleController {
     private SavedArticleService savedArticleService;
 
 
+    @ApiOperation(value = "Saved Article", notes = "Method create Saved Article")
     @PostMapping("/adm")
     public ResponseEntity<?> create(@RequestBody SavedArticleDTO dto, HttpServletRequest request) {
         Integer profileId = HttpHeaderUtil.getId(request, ProfileRole.USER);
@@ -27,6 +33,7 @@ public class SavedArticleController {
         return ResponseEntity.ok().body(responseDTO);
     }
 
+    @ApiOperation(value = "Saved Article delete", notes = "Method delete Saved Article")
     @DeleteMapping("/adm/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Integer id, HttpServletRequest request) {
         Integer profileId = HttpHeaderUtil.getId(request, ProfileRole.USER);
@@ -35,6 +42,7 @@ public class SavedArticleController {
     }
 
 
+    @ApiOperation(value = "Saved Article get list", notes = "Method get list Saved Article only admin")
     @GetMapping("/adm/list")
     public ResponseEntity<?> getlist(HttpServletRequest request) {
         Integer profileId = HttpHeaderUtil.getId(request, ProfileRole.USER);

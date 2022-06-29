@@ -25,9 +25,13 @@ public class ArticleCreateDTO {
     @NotBlank(message = "qani descreption")
     private String description;
 
+    @NotBlank(message = "requerid region")
     private Integer regionId;
+
+    @NotBlank(message = "requerid category")
     private Integer categoryId;
 
+    @NotNull
     private String imageId;
 
     private List<Integer> typesList;

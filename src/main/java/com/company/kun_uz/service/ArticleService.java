@@ -511,7 +511,6 @@ public class ArticleService {
         }
 
         ArticleEntity articleEntity = optional.get();
-        /*   articleEntity.setViewCount(articleEntity.getViewCount() +1);*/
 
         articleRepository.updtecount(article_id, articleEntity.getViewCount() + 1);
 

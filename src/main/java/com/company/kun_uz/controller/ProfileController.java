@@ -7,14 +7,20 @@ import com.company.kun_uz.enums.ProfileRole;
 import com.company.kun_uz.service.ProfileService;
 import com.company.kun_uz.util.HttpHeaderUtil;
 import com.company.kun_uz.util.JwtUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
+@Slf4j
+@Api(tags = "Profile")
 @RequestMapping("/profile")
 @RestController
 public class ProfileController {
@@ -23,9 +29,9 @@ public class ProfileController {
     @Autowired
     private ProfileService profileService;
 
-
+    @ApiOperation(value = "Profile", notes = "Method create profile only admin")
     @PostMapping("")
-    public ResponseEntity<?> create(@RequestBody ProfileDTO profileDto,
+    public ResponseEntity<ProfileDTO> create(@RequestBody @Valid ProfileDTO profileDto,
                                     HttpServletRequest request) {
         HttpHeaderUtil.getId(request, ProfileRole.ADMIN);
         ProfileDTO dto = profileService.create(profileDto);
@@ -33,6 +39,7 @@ public class ProfileController {
     }
 
 
+    @ApiOperation(value = "Profile get List", notes = "Method get List profile only admin")
     @GetMapping("")
     public ResponseEntity<List<ProfileDTO>> getProfileList(HttpServletRequest request) {
         HttpHeaderUtil.getId(request, ProfileRole.ADMIN);
@@ -41,8 +48,9 @@ public class ProfileController {
     }
 
 
+    @ApiOperation(value = "Profile updete", notes = "Method update profile only owner")
     @PutMapping("/detail")
-    public ResponseEntity<?> update(@RequestBody ProfileDTO dto,
+    public ResponseEntity<String> update(@RequestBody ProfileDTO dto,
                                     HttpServletRequest request) {
         Integer profileId = HttpHeaderUtil.getId(request);
         profileService.update(profileId, dto);
@@ -50,15 +58,17 @@ public class ProfileController {
     }
 
 
+    @ApiOperation(value = "Profile updete", notes = "Method update profile only admin")
     @PutMapping("/{id}")
     private ResponseEntity<?> update(@PathVariable("id") Integer id,
-                                     @RequestBody ProfileDTO dto,
+                                     @RequestBody @Valid ProfileDTO dto,
                                      HttpServletRequest request) {
         HttpHeaderUtil.getId(request, ProfileRole.ADMIN);
         profileService.update(id, dto);
         return ResponseEntity.ok().body("Succsessfully updated");
     }
 
+    @ApiOperation(value = "Profile delete", notes = "Method delete profile only admin")
     @DeleteMapping("/{id}")
     private ResponseEntity<?> delete(@PathVariable("id") Integer id,
                                      HttpServletRequest request) {
@@ -67,6 +77,7 @@ public class ProfileController {
         return ResponseEntity.ok().body("Sucsessfully deleted");
     }
 
+    @ApiOperation(value = "Profile get list pagination", notes = "Method get list profile only admin")
     @GetMapping("/pagination")
     public ResponseEntity<PageImpl> getPagination(@RequestParam(value = "page", defaultValue = "1") int page,
                                                   @RequestParam(value = "size", defaultValue = "3") int size,
